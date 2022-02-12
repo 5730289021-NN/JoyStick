@@ -70,7 +70,7 @@ let StickStatus =
  *  autoReturnToCenter {Bool} (optional) - Sets the behavior of the stick, whether or not, it should return to zero position when released (Default value is True and return to zero)
  * @param callback {StickStatus} - 
  */
-var JoyStick = (function(container, parameters, callback)
+export default function(container, parameters, callback)
 {
     parameters = parameters || {};
     var title = (typeof parameters.title === "undefined" ? "joystick" : parameters.title),
@@ -414,4 +414,10 @@ var JoyStick = (function(container, parameters, callback)
     {
         return getCardinalDirection();
     };
-});
+    
+    
+    this.isPressed = function()
+    {
+        return pressed == 1;
+    };
+}
